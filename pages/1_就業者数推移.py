@@ -15,6 +15,11 @@ st.set_page_config(page_title="就業者数の推移", page_icon="📈", layout=
 
 st.title("📈 労働力状態別人口の推移（男女別）")
 
+import matplotlib.font_manager as fm
+
+fonts = [f.name for f in fm.fontManager.ttflist if "Noto" in f.name]
+st.write(fonts)
+
 # --- サイドバー：操作パネル ---
 with st.sidebar:
     st.header("絞り込み")
