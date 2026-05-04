@@ -10,7 +10,7 @@ https://zenn.dev/cool_crocus678/articles/japan-census-streamlit
 
 ```bash
 uv sync
-.venv\Scripts\python -m streamlit run app.py
+uv run streamlit run app.py
 ```
 
 ## フォルダ構成
@@ -43,6 +43,10 @@ uv sync
 - 表題：労働力状態（3区分），男女別人口及び労働力率（15歳以上）－ 都道府県（昭和25年～令和2年）
 - データセットURL：https://www.e-stat.go.jp/dbview?sid=0003412176
 
-地域コードのみ
+地域コード（都道府県マスタ）は別データセットを使用しています。
 
 - データセットURL：https://www.e-stat.go.jp/regional-statistics/ssdsview/prefectures
+
+## ライセンス
+
+本リポジトリのコードはMIT Licenseです。データの利用については上記e-Statの利用規約に従ってください。
