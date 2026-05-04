@@ -16,7 +16,7 @@ LABEL_FEMALE = "女性"
 
 def _set_japanese_font() -> None:
     """利用可能な日本語フォントを設定する。"""
-    candidates = ["Meiryo", "Hiragino Sans", "IPAexGothic", "Noto Sans CJK JP"]
+    candidates = ["Noto Sans CJK JP", "Meiryo", "Hiragino Sans", "IPAexGothic"]
     available = {f.name for f in fm.fontManager.ttflist}
     for font in candidates:
         if font in available:
