@@ -15,11 +15,28 @@ LABEL_FEMALE = "女性"
 
 
 def _set_japanese_font() -> None:
-    """利用可能な日本語フォントを設定する。"""
+    """日本語フォントを設定する。"""
     import matplotlib.font_manager as fm
 
+    # フォントキャッシュを再構築
     fm._load_fontmanager(try_read_cache=False)
-    candidates = ["Noto Sans CJK JP", "Meiryo", "Hiragino Sans", "IPAexGothic"]
+
+    # フォントファイルを直接指定（Linux環境用）
+    font_paths = [
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
+    ]
+    for path in font_paths:
+        import os
+
+        if os.path.exists(path):
+            fm.fontManager.addfont(path)
+            prop = fm.FontProperties(fname=path)
+            plt.rcParams["font.family"] = prop.get_name()
+            return
+
+    # フォールバック：名前で検索
+    candidates = ["Noto Sans CJK JP", "Noto Sans CJK", "Meiryo", "IPAexGothic"]
     available = {f.name for f in fm.fontManager.ttflist}
     for font in candidates:
         if font in available:
