@@ -16,6 +16,9 @@ LABEL_FEMALE = "女性"
 
 def _set_japanese_font() -> None:
     """利用可能な日本語フォントを設定する。"""
+    import matplotlib.font_manager as fm
+
+    fm._load_fontmanager(try_read_cache=False)
     candidates = ["Noto Sans CJK JP", "Meiryo", "Hiragino Sans", "IPAexGothic"]
     available = {f.name for f in fm.fontManager.ttflist}
     for font in candidates:
