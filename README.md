@@ -10,7 +10,8 @@ https://zenn.dev/cool_crocus678/articles/japan-census-streamlit
 
 ```bash
 uv sync
-uv run streamlit run app.py
+# Windows
+.venv\Scripts\python -m streamlit run app.py
 ```
 
 ## フォルダ構成
